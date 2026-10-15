@@ -25,6 +25,9 @@ const {default:AxeBuilder}=require('@axe-core/playwright');
      return r.bottom<=w.top && getComputedStyle(content).overflowY==='auto';
     });
     assert.equal(safe,true,'Mobile reading viewport must end above WhatsApp launcher');
+    const dock=await page.locator('.contact-dock').evaluate(el=>{const s=getComputedStyle(el);return {background:s.backgroundColor,border:s.borderTopWidth};});
+    assert.equal(dock.background,'rgba(0, 0, 0, 0)','Contact safe area must not paint a white strip');
+    assert.equal(dock.border,'0px','Contact safe area must not introduce a visual divider');
     for(const fraction of [0,.25,.5,1]){
      await page.locator('#site-content').evaluate((e,f)=>e.scrollTop=(e.scrollHeight-e.clientHeight)*f,fraction);
      const hits=await page.evaluate(()=>{
