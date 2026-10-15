@@ -1,0 +1,9 @@
+{
+  "name": "kasapink-website",
+  "private": true,
+  "scripts": { "build": "node scripts/build.mjs", "test": "node tests/site.cjs && node tests/ux-polish.cjs && node tests/build.cjs" },
+  "devDependencies": {
+    "playwright": "1.64.1",
+    "@axe-core/playwright": "4.13.0"
+  }
+}

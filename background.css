@@ -1,0 +1,63 @@
+/* Sage Atelier: calm brand canvas, quiet text zones, protected original logos. */
+:root {
+  --canvas: #eef2ed;
+  --wash-sage: #dce7de;
+  --wash-warm: #f3eae4;
+  --surface: #fcfdfa;
+  --line: #ccd7cc;
+  --muted: #4f594d;
+  --olive: #645030;
+  --texture-ink: rgb(69 89 74 / .028);
+}
+body {
+  isolation: isolate;
+  background-color: var(--canvas);
+  background-image: url('assets/contours.svg'),
+    radial-gradient(ellipse at 100% 0%, var(--wash-sage), transparent 65%),
+    radial-gradient(ellipse at 0% 100%, var(--wash-warm), transparent 60%);
+  background-position: center top, right top, left bottom;
+  background-size: 100% 1000px, 85% 800px, 75% 850px;
+  background-repeat: no-repeat;
+}
+/* Fine static weave stays near the margins, away from headings and logos. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, var(--texture-ink) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, var(--texture-ink) 0 1px, transparent 1px 7px);
+  mask-image: linear-gradient(90deg, #000, transparent 30% 70%, #000);
+}
+/* Soft light, not a visible backing card. No recoloring of either logo. */
+.brand-art {
+  background-image: radial-gradient(ellipse closest-side at 50% 45%, #ffffff 0 52%, rgb(255 255 255 / .65) 74%, transparent 100%);
+}
+.food-logo, .about-layout > img {
+  background-image: radial-gradient(circle, #ffffff 0 48%, rgb(255 255 255 / .6) 61%, transparent 73%);
+}
+.brand > img {
+  background-image: radial-gradient(circle, #ffffff 0 45%, transparent 74%);
+}
+.dropdown, dialog { background-color: var(--surface); }
+.dropdown a:hover, .dialog-header button:hover { background-color: #e8eee5; }
+.lineup-row { border-top-color: #c5d0c2; }
+@media (max-width: 650px) {
+  body {
+    background-size: auto 1000px, 125% 650px, 140% 800px;
+    background-position: center top, right top, left bottom;
+  }
+  body::before { mask-image: linear-gradient(90deg, #000, transparent 12% 88%, #000); }
+}
+@media print {
+  body { background: white; }
+  body::before { display: none; }
+  .brand-art, .food-logo, .about-layout > img, .brand > img { background-image: none; }
+}
+@media (forced-colors: active) {
+  body { background: Canvas; }
+  body::before { display: none; }
+  .brand-art, .food-logo, .about-layout > img, .brand > img { background-image: none; }
+}
