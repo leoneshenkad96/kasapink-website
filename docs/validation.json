@@ -1,0 +1,42 @@
+[
+  {
+    "width": 320,
+    "status": 200,
+    "overflow": false,
+    "skipKeyboard": true,
+    "badImages": 0,
+    "whatsappCorrect": true,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "width": 375,
+    "status": 200,
+    "overflow": false,
+    "skipKeyboard": true,
+    "badImages": 0,
+    "whatsappCorrect": true,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "width": 768,
+    "status": 200,
+    "overflow": false,
+    "skipKeyboard": true,
+    "badImages": 0,
+    "whatsappCorrect": true,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "status": 200,
+    "overflow": false,
+    "skipKeyboard": true,
+    "badImages": 0,
+    "whatsappCorrect": true,
+    "errors": [],
+    "violations": []
+  }
+]
