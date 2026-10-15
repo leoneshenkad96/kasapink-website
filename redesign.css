@@ -174,8 +174,8 @@ textarea { resize: vertical; }
     position: fixed;
     inset: auto 0 0;
     height: calc(84px + env(safe-area-inset-bottom, 0px));
-    background: var(--surface, #ffffff);
-    border-top: 1px solid var(--line);
+    background: transparent;
+    border-top: 0;
     z-index: 8;
     pointer-events: none;
   }
