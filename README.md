@@ -1,6 +1,6 @@
 # Kasapink
 
-Landing page statis, mobile-first, tanpa dependency frontend atau proses build. Jalankan server statis dari folder ini untuk preview. Jangan deploy production sebelum persetujuan pemilik.
+Landing page statis, mobile-first, tanpa dependency frontend saat runtime. Preview lokal dapat dibuka melalui `index.html`. `npm run build` menyalin hanya file publik yang diizinkan ke `public/`; Vercel menggunakan output ini. Deploy production hanya dengan persetujuan pemilik.
 
 - `index.html`: konten, WhatsApp resmi `6287884363963`, SEO dan metadata sosial.
 - `styles.css`: gaya responsif, fallback font lokal, reduced motion, fokus keyboard.
