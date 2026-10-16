@@ -3,6 +3,8 @@
   --ink: #2c342b; --olive: #78633e; --line: #d9dacd; --muted: #596052;
 }
 * { box-sizing: border-box; }
+/* Reserve scrollbar space so long and short routes share the same header position. */
+html { scrollbar-gutter: stable; }
 [hidden] { display: none !important; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 'Trebuchet MS', Arial, sans-serif; }
 a { color: inherit; }
@@ -159,7 +161,7 @@ textarea { resize: vertical; }
 @media (max-width: 900px) {
   /* Scroll the entire site above the fixed dock, not underneath its button.
      This keeps the reading column full width and the contact icon available. */
-  html { height: 100%; overflow: hidden; }
+  html { height: 100%; overflow: hidden; scrollbar-gutter: auto; }
   body { height: 100svh; height: 100dvh; overflow: hidden; }
   #site-content {
     display: block;
@@ -167,7 +169,7 @@ textarea { resize: vertical; }
     height: calc(100dvh - 84px - env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
     overscroll-behavior-y: contain;
-    scrollbar-gutter: auto;
+    scrollbar-gutter: stable;
   }
   .contact-dock {
     display: block;

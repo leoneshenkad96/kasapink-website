@@ -32,7 +32,9 @@ const {default: AxeBuilder} = require('@axe-core/playwright');
     'Kami juga percaya bahwa konsistensi membutuhkan proses yang dapat dijalankan dan dievaluasi. Perhatian pada pencatatan, persiapan, dan pelaksanaan menjadi bagian dari cara kami membangun usaha secara bertahap.'
    ]);
    const copyWidth=await page.locator('.about-copy').evaluate(el=>el.getBoundingClientRect().width);
-   assert.ok(copyWidth >= (width>=768 ? 680 : width-44), `Reading column too narrow: ${copyWidth}`);
+   // Use the reading viewport, excluding any reserved classic scrollbar gutter.
+   const readingWidth=await page.locator('#site-content').evaluate(el=>getComputedStyle(el).display==='contents'?document.documentElement.clientWidth:el.clientWidth);
+   assert.ok(copyWidth >= (width>=768 ? 680 : readingWidth-44), `Reading column too narrow: ${copyWidth}`);
    const aboutAxe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
    assert.deepEqual(aboutAxe.violations.map(v=>v.id),[]);
    assert.equal(await page.locator('#about .draft-note').count(),0);
